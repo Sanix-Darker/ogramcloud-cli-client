@@ -1,9 +1,14 @@
 # Settings.py for ogramcloud-cli-client
 # First, install configparser using "pip install configparser"
 import configparser
+from app.utils import install_config
+from os import path
+
+if not path.exists("config.txt"):
+    install_config()
 
 # Configs parameters
-conf = configparser.RawConfigParser()   
+conf = configparser.RawConfigParser()
 configFilePath = r'config.txt'
 conf.read(configFilePath)
 

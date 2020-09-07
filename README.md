@@ -1,8 +1,22 @@
 # OgramCloud-CLI-client
 
-This is just an implementation of a python client for (OgramCloud)[https://ogramcloud.com]
+This is just an implementation of a python client for [OgramCloud](https://ogramcloud.com)
 
-## How to install
+## Production-Setup
+
+### Download the latest release
+
+### How to use it
+
+
+## Development-Setup
+
+### How to install
+
+- After cloning the project :
+```shell
+git clone https://github.com/Sanix-Darker/ogramcloud-cli-client
+```
 
 - After creating your Virtualenv :
 ```shell
@@ -11,12 +25,14 @@ virtualenv -p python3 venv
 source venv/bin/activate
 ```
 
+- Copy the `example.config.txt` to `config.txt` and provide corrects informations
+
 - Install dependencies:
 ```shell
 pip install -r requirements.txt
 ```
 
-## How to launch
+### How to launch
 
 - To upload a file, just hit :
 ```shell
@@ -46,6 +62,23 @@ optional arguments:
                         The host url of OgramCloud
 ```
 
+- To build the executable :
+```shell
+# You install pyinstaller
+pip3 install pyinstaller
+
+# To build the executable using pyinstaller
+pyinstaller main.py --name occ \
+ --hiddenimport=requests \
+ --hiddenimport=configparser \
+ --exclude-module=pytest \
+ --onefile
+```
+
 ## Author
 
-- sanix-darker
+- Sanix-darker
+
+## LICENSE
+
+[MIT - LICENSE](https://github.com/Sanix-Darker/ogramcloud-cli-client/blob/master/LICENSE)

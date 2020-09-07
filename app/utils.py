@@ -9,6 +9,8 @@ def upload(file_path: str, host_url: str, chat_id: str):
     """
     This method will proceed the upload to Ogram-API
     ::file_path:: The file path of the file you want to upload
+    ::host_url:: The Host of the server where Ogram is running, as default ogramcloud.com
+    ::chat_id:: Your chat-id
     """
     
     files = {
@@ -30,7 +32,11 @@ def upload(file_path: str, host_url: str, chat_id: str):
 
 
 def getFile(oid: str, host_url: str):
-
+    """
+    This method will get file from the ogramCloud-Id
+    ::oid:: The OgramCloudId of your file or the file-key
+    ::host_url:: The Host of the server where Ogram is running, as default ogramcloud.com
+    """
     print("[+] Fetching file info...")
 
     r = requests.get(host_url + "/api/checkfile/" + oid)
@@ -51,8 +57,10 @@ def getFile(oid: str, host_url: str):
         print("[x] Error, your ogram-file-key is not valid !")
 
 
-def install():
-    
+def install_config():
+    """
+    This method will just set the configuration file and then run using parrameters in it
+    """
     print("[-] Installation of your OgramCloud-CLI-client")
     if path.exists("config.txt"):
         print("[-] A configuration file have been detected, do you want to procedd installation anyway !?")
@@ -63,4 +71,25 @@ def install():
         else:
             print("[+] Proceeding the installation..")
 
+    print("\n[-] To use OgramCloud-CLI-client, you need to set a config.txt file where your chat-id will be store !")
+    chat_id = input("[+]> chat-id* (Get it with the ogram-bot (https://t.me/omega_gram_bot)) :")
     
+    while len(chat_id) <= 2:
+        print("[x] Error, You need to provide a valid Chat-Id tomake Occ work !")
+        chat_id = input("[+]> chat-id* (Get it with the ogram-bot (https://t.me/omega_gram_bot)) :")
+    
+    host_url = input("[+]> host-url (Leave it blank if you don't have your own Server, https://ogramcloud.com as default):")
+    default_host = "https://ogramcloud.com"
+
+    if len(host_url) <= 1:
+        host_url = default_host
+
+    to_write = """[oclients-config]
+CHAT_ID=""" + chat_id + """
+HOST_URL=""" + host_url + """
+"""
+    with open("config.txt", "w") as frr:
+        frr.write(to_write)
+
+    print("[+] Configuration setted successfully, you can now run OCC at any time !")
+    exit()

@@ -7,3 +7,6 @@ tests/__pycache__/
 tests/.pytest_cache/
 config.txt
 .idea
+dist
+build
+occ.spec
