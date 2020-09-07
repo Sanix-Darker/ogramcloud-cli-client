@@ -1,0 +1,9 @@
+logs.log
+.history
+*__pycache__
+*.pyc
+.vcode
+tests/__pycache__/
+tests/.pytest_cache/
+config.txt
+.idea

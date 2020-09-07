@@ -1,0 +1,3 @@
+[oclients-config]
+CHAT_ID=---------
+HOST_URL=https://ogramcloud.com
