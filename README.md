@@ -6,8 +6,37 @@ This is just an implementation of a python client for [OgramCloud](https://ogram
 
 ### Download the latest release
 
+You just have to og on [Releases](https://github.com/Sanix-Darker/ogramcloud-cli-client/releases) and get the version you want for your system.
+
 ### How to use it
 
+- To upload a file, just hit :
+```shell
+occ -f ./your/file.path
+```
+
+- To get the file with the file-key, just hit :
+```shell
+occ -i iooooiiiiiooooo
+```
+
+- To get help :
+```shell
+occ -h
+
+usage: occ [-h] [-f FILEPATH] [-i ID] [-c CHATID] [-u HOSTURL]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -f FILEPATH, --filepath FILEPATH
+                        File path of the file we want to upload
+  -i ID, --id ID        OgramCloud Id for regenerating our file
+  -c CHATID, --chatid CHATID
+                        Chat Id on Telegram account, see documentation of
+                        (https://ogramcloud.com)
+  -u HOSTURL, --hosturl HOSTURL
+                        The host url of OgramCloud
+```
 
 ## Development-Setup
 
