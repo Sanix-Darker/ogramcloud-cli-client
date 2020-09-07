@@ -1,6 +1,6 @@
 # OgramCloud-CLI-client
 
-This is just an implementation of a python client for [OgramCloud](https://ogramcloud.com)
+This is CLI interface for the free UNLIMITED STORAGE of [OgramCloud](https://ogramcloud.com)/[Source-code](https://github.com/Sanix-Darker/ogramcloud) service.
 
 ## Production-Setup
 
