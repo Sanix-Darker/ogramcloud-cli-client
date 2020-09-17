@@ -2,6 +2,12 @@
 
 This is CLI interface for the free UNLIMITED STORAGE of [OgramCloud](https://ogramcloud.com)/[Source-code](https://github.com/Sanix-Darker/ogramcloud) service.
 
+<img src="./img/occ.gif"/>
+
+### Explanations
+
+In this short demo we send a file `Marsh.mp3` on OgramCloud using **occ**; then we delete it locally and regenerate it from its file-key.
+
 ## Production-Setup
 
 ### Download the latest release
