@@ -35,7 +35,7 @@ def upload(file_path: str, host_url: str, chat_id: str):
 def getFile(oid: str, host_url: str):
     """
     This method will get file from the ogramCloud-Id
-    
+
     ::oid:: The OgramCloudId of your file or the file-key
     ::host_url:: The Host of the server where Ogram is running, as default ogramcloud.com
     """
@@ -49,12 +49,23 @@ def getFile(oid: str, host_url: str):
         print("[+] Chunks : " + str(info["chunks"]))
 
         print("[+] Downloading your file...")
-
+        
+        # ping
         r2 = requests.get(host_url + "/api/file/" + oid)
+        if r2.status_code == 200:
+            print("[+] ping... ")
+            # pong
+            r3 = requests.get(host_url + "/api/file/" + oid)
 
-        with open(info["file_name"], "wb") as fr:
-            fr.write(r2.content)
-            print("[+] file downloaded successfully !")
+            if r3.status_code == 200:
+                print("[+] pong....")
+                with open(info["file_name"], "wb") as fr:
+                    fr.write(r3.content)
+                    print("[+] file downloaded successfully !")
+            else:
+                print("[x] Failed to pong, please retry...")
+        else:
+            print("[x] Failed to ping, please retry...")
     else:
         print("[x] Error, your ogram-file-key is not valid !")
 
