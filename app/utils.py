@@ -8,6 +8,7 @@ from sys import exit
 def upload(file_path: str, host_url: str, chat_id: str):
     """
     This method will proceed the upload to Ogram-API
+
     ::file_path:: The file path of the file you want to upload
     ::host_url:: The Host of the server where Ogram is running, as default ogramcloud.com
     ::chat_id:: Your chat-id
@@ -34,6 +35,7 @@ def upload(file_path: str, host_url: str, chat_id: str):
 def getFile(oid: str, host_url: str):
     """
     This method will get file from the ogramCloud-Id
+    
     ::oid:: The OgramCloudId of your file or the file-key
     ::host_url:: The Host of the server where Ogram is running, as default ogramcloud.com
     """

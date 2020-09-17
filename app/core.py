@@ -1,15 +1,14 @@
 # main client
 import argparse
-from app.settings import CHAT_ID, HOST_URL
+from app.settings import CHAT_ID, HOST_URL, __version__
 from app.utils import upload, getFile
-
-__version__ = '0.0.1'
 
 def main():
     # Initialize the arguments
+
     # Example command :
-    # To upload : python3 -m app.main -f ./your/file.path
-    # To get your file : python3 -m app.main -i 0101010101010
+    # - To upload : python -m app.main -f ./your/file.path
+    # - To get your file : python -m app.main -i 0101010101010
     prs = argparse.ArgumentParser()
     prs.add_argument('-f', '--filepath', 
                         help='File path of the file we want to upload', type=str)

@@ -12,11 +12,13 @@ You just have to og on [Releases](https://github.com/Sanix-Darker/ogramcloud-cli
 
 - To upload a file, just hit :
 ```shell
+# Just provide the file path of the file you want to send
 occ -f ./your/file.path
 ```
 
 - To get the file with the file-key, just hit :
 ```shell
+# Just provide the file-key of your file
 occ -i iooooiiiiiooooo
 ```
 
