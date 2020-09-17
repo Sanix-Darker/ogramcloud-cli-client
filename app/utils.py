@@ -45,23 +45,22 @@ def getFile(oid: str, host_url: str):
     info = json.loads(r.content.decode())
 
     if info["status"] == "success":
-        print("[+] Getting file " + info["file_name"] + "...")
+        print("[+] Getting '" + info["file_name"] + "'...")
         print("[+] Chunks : " + str(info["chunks"]))
 
-        print("[+] Downloading your file...")
-        
+        print("[+] Trying ping-pong... your file")
         # ping
         r2 = requests.get(host_url + "/api/file/" + oid)
         if r2.status_code == 200:
             print("[+] ping... ")
+            print("[+] Downloading your file...")
             # pong
             r3 = requests.get(host_url + "/api/file/" + oid)
-
             if r3.status_code == 200:
                 print("[+] pong....")
                 with open(info["file_name"], "wb") as fr:
                     fr.write(r3.content)
-                    print("[+] file downloaded successfully !")
+                    print("[+] File downloaded successfully !")
             else:
                 print("[x] Failed to pong, please retry...")
         else:
